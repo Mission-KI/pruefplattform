@@ -1,0 +1,19 @@
+{
+    "id": {
+        "domain": "local",
+        "name": "mocktool"
+    },
+    "description": "A mock tool for development",
+    "functions": {
+        "metric": {
+            "package": "mocktool",
+            "script": "metric.py",
+            "function": "fourtytwo",
+            "inputs": [],
+            "outputs": []
+        }
+    },
+    "wrong_property": {
+        "requirements": "requirements.txt"
+    }
+}

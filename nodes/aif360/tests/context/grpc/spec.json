@@ -1,0 +1,153 @@
+{
+    "id": {
+        "domain": "local",
+        "name": "aif360-tool"
+    },
+    "description": "A tool that wraps aif360 metrics",
+    "functions": {
+        "statistical_parity_difference": {
+            "project": "aif360-tool",
+            "package": {
+                "name": "aif360_wrapper",
+                "path": "src/enpkg/aif360_wrapper"
+            },
+            "script": "wrapper.py",
+            "function": "statistical_parity_difference_wrapper",
+            "inputs": [
+                {
+                    "name": "df",
+                    "type": "file",
+                    "format": "csv",
+                    "description": "The input features and labels as a csv that can be loaded via pd.read_csv."
+                },
+                {
+                    "name": "config",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "object",
+                        "properties": {
+                            "label_name": {
+                                "type": "string"
+                            },
+                            "favorable_label": {
+                                "type": "integer"
+                            },
+                            "unfavorable_label": {
+                                "type": "integer"
+                            },
+                            "favorable_classes": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "type": "integer"
+                                    }
+                                ]
+                            },
+                            "protected_attribute_names": {
+                                "type": "array",
+                                "items": [
+                                    {
+                                        "type": "string"
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "protected_attribute_names"
+                        ]
+                    },
+                    "description": "A JSON with dataset and additional info."
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the fairness metric value."
+                }
+            ]
+        },
+
+        "num_positives": {
+          "project": "aif360-tool",
+          "package": {
+            "name": "aif360_wrapper",
+            "path": "src/enpkg/aif360_wrapper"
+          },
+          "script": "wrapper.py",
+          "function": "num_positives_wrapper",
+          "inputs": [{ "$ref": "#/functions/statistical_parity_difference/inputs/0" }, { "$ref": "#/functions/statistical_parity_difference/inputs/1" }],
+          "outputs": [{ "$ref": "#/functions/statistical_parity_difference/outputs/0" }]
+        },
+
+        "num_negatives": {
+          "project": "aif360-tool",
+          "package": {
+            "name": "aif360_wrapper",
+            "path": "src/enpkg/aif360_wrapper"
+          },
+          "script": "wrapper.py",
+          "function": "num_negatives_wrapper",
+          "inputs": [{ "$ref": "#/functions/statistical_parity_difference/inputs/0" }, { "$ref": "#/functions/statistical_parity_difference/inputs/1" }],
+          "outputs": [{ "$ref": "#/functions/statistical_parity_difference/outputs/0" }]
+        },
+
+        "base_rate": {
+          "project": "aif360-tool",
+          "package": {
+            "name": "aif360_wrapper",
+            "path": "src/enpkg/aif360_wrapper"
+          },
+          "script": "wrapper.py",
+          "function": "base_rate_wrapper",
+          "inputs": [{ "$ref": "#/functions/statistical_parity_difference/inputs/0" }, { "$ref": "#/functions/statistical_parity_difference/inputs/1" }],
+          "outputs": [{ "$ref": "#/functions/statistical_parity_difference/outputs/0" }]
+        },
+
+        "disparate_impact": {
+          "project": "aif360-tool",
+          "package": {
+            "name": "aif360_wrapper",
+            "path": "src/enpkg/aif360_wrapper"
+          },
+          "script": "wrapper.py",
+          "function": "disparate_impact_wrapper",
+          "inputs": [{ "$ref": "#/functions/statistical_parity_difference/inputs/0" }, { "$ref": "#/functions/statistical_parity_difference/inputs/1" }],
+          "outputs": [{ "$ref": "#/functions/statistical_parity_difference/outputs/0" }]
+        },
+
+        "consistency": {
+          "project": "aif360-tool",
+          "package": {
+            "name": "aif360_wrapper",
+            "path": "src/enpkg/aif360_wrapper"
+          },
+          "script": "wrapper.py",
+          "function": "consistency_wrapper",
+          "inputs": [{ "$ref": "#/functions/statistical_parity_difference/inputs/0" }, { "$ref": "#/functions/statistical_parity_difference/inputs/1" }],
+          "outputs": [{ "$ref": "#/functions/statistical_parity_difference/outputs/0" }]
+        },
+
+        "smoothed_empirical_differential_fairness": {
+          "project": "aif360-tool",
+          "package": {
+            "name": "aif360_wrapper",
+            "path": "src/enpkg/aif360_wrapper"
+          },
+          "script": "wrapper.py",
+          "function": "smoothed_empirical_differential_fairness_wrapper",
+          "inputs": [{ "$ref": "#/functions/statistical_parity_difference/inputs/0" }, { "$ref": "#/functions/statistical_parity_difference/inputs/1" }],
+          "outputs": [{ "$ref": "#/functions/statistical_parity_difference/outputs/0" }]
+        }
+    },
+    "build": {
+        "requirements": ""
+    }
+}

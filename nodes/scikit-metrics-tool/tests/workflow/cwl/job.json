@@ -1,0 +1,16 @@
+{
+  "func": "accuracy_wrapper",
+  "input_uri": [
+    {
+      "class": "File",
+      "path": "../../data/pred_labels.json"
+    },
+    {
+      "class": "File",
+      "path": "../../data/true_labels.json"
+    }
+  ],
+  "output_uri": [
+    "results/result.json"
+  ]
+}

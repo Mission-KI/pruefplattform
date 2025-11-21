@@ -1,0 +1,35 @@
+# docker-compose configuration
+services:
+  scikit-tool:
+    image: ${image_name}
+    container_name: ${image_name}
+    hostname: ${image_name}
+    networks:
+      - scikit-workflow-net
+    healthcheck:
+      test: timeout 5s bash -c ':> /dev/tcp/127.0.0.1/8061' || exit 1
+      interval: 1s
+      timeout: 2s
+      retries: 100
+    volumes:
+      - "${inputs}:/inputs:ro"
+      - "${results}:/results"
+  mock-orchestrator:
+    image: mock-orch
+    container_name: mock-orchestrator
+    hostname: mock-orchestrator
+    environment:
+      TOOL_HOSTNAME: "${image_name}"
+      TOOL_FUNC: "accuracy_wrapper"
+      INPUT_URI_LIST: "/inputs/true_labels.json,/inputs/pred_labels.json"
+      OUTPUT_URI_LIST: "/results/result.json"
+    networks:
+      - scikit-workflow-net
+    depends_on:
+      scikit-tool:
+        condition: service_healthy
+    volumes:
+      - "${results}:/results"
+
+networks:
+  scikit-workflow-net:

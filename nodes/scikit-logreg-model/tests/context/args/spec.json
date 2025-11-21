@@ -1,0 +1,57 @@
+{
+    "id": {
+        "domain": "local",
+        "name": "scikit-logreg-model"
+    },
+    "description": "A logistic regression model with fixed parameters",
+    "functions": {
+        "predict": {
+            "project": "scikit-logreg-model",
+            "package": {
+                "name": "logreg_model_wrapper",
+                "path": "src/enpkg/logreg_model_wrapper"
+            },
+            "script": "impl.py",
+            "function": "predict_wrapper",
+            "inputs": [
+                {
+                    "name": "features",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "type": "array",
+                            "minItems": 1,
+                            "items": {
+                                "type": "number"
+                            }
+                        }
+                    },
+                    "description": "An array representing a batch of model inputs"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "predictions",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "minItems": 1,
+                        "items": {
+                            "type": "number"
+                        }
+                   },
+                    "description": "An array representing a batch of model predictions."
+                }
+            ]
+        }
+    },
+    "build": {
+        "requirements": ""
+    }
+}

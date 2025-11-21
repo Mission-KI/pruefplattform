@@ -1,0 +1,23 @@
+{
+    "id": {
+        "domain": "d",
+        "name": "m"
+    },
+    "description": "desc",
+    "functions": {
+        "a": {
+            "project": "",
+            "package": {
+                "name": "n",
+                "path": "p/p"
+            },
+            "script": "s.py",
+            "function": "f",
+            "inputs": [],
+            "outputs": []
+        }
+    },
+    "build": {
+        "requirements": "requirements.txt"
+    }
+}

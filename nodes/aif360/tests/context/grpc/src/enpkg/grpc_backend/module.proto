@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+message Empty {
+
+}
+
+message ExecutionMeta {
+	string execution_name = 1;
+	string node = 2;
+	int64 timestamp = 3;
+}
+
+message ArtifactNodeLocation {
+	string uri = 1;
+	string parameters = 2;
+}
+
+message ArtifactNodeMessage {
+	string name = 1;
+	ArtifactNodeLocation location = 2;
+	string payload_id = 3;
+}
+
+message ExecutionMessage {
+	string func = 1;
+	repeated ArtifactNodeMessage input = 2;
+	repeated ArtifactNodeMessage output = 3;
+	ExecutionMeta meta = 4;
+}
+
+service Module {
+    rpc exec(ExecutionMessage) returns (ExecutionMessage);
+}

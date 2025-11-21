@@ -1,0 +1,61 @@
+{
+    "id": {
+        "domain": "d",
+        "name": "m"
+    },
+    "description": "desc",
+    "functions": {
+        "a": {
+            "project": "",
+            "package": {
+                "name": "n",
+                "path": "p/p"
+            },
+            "script": "s.py",
+            "function": "f",
+            "inputs": [
+                {
+                    "name": "a",
+                    "type": "file",
+                    "format": "json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "array of numbers a"
+                },
+                {
+                    "name": "b",
+                    "type": "file",
+                    "format": "json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "array of numbers b"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "c",
+                    "type": "file",
+                    "format": "json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "float c"
+                }
+            ]
+        }
+    },
+    "build": {
+        "requirements": "requirements.txt"
+    }
+}

@@ -1,0 +1,19 @@
+default:
+  tags:
+    - asprunner
+
+stages:
+  - test
+
+test:
+  stage: test
+  image: python:3.9
+  before_script:
+    - pip install uv
+    - uv venv
+    - uv pip install .[dev]
+  script:
+    - uv run pytest -m "unit"
+  only:
+    - dev
+    - /^feature.*$/

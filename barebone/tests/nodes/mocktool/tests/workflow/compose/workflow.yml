@@ -1,0 +1,29 @@
+# docker-compose configuration
+services:
+  mock-tool:
+    image: ${image_name}
+    container_name: ${image_name}
+    hostname: ${image_name}
+    networks:
+      - mock-workflow-net
+    healthcheck:
+      test: timeout 5s bash -c ':> /dev/tcp/127.0.0.1/8061' || exit 1
+      interval: 1s
+      timeout: 2s
+      retries: 100
+    volumes:
+      - "${results}:/results"
+  mock-orchestrator:
+    image: mock-orch
+    container_name: mock-orchestrator
+    hostname: mock-orchestrator
+    networks:
+      - mock-workflow-net
+    depends_on:
+      mock-tool:
+        condition: service_healthy
+    volumes:
+      - "${results}:/results"
+
+networks:
+  mock-workflow-net:

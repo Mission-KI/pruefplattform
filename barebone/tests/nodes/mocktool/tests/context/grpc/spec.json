@@ -1,0 +1,56 @@
+{
+    "id": {
+        "domain": "local",
+        "name": "mocktool"
+    },
+    "description": "A mock tool for development",
+    "functions": {
+        "fourtyone": {
+            "project": "mocktool",
+            "package": {
+                "name": "toolpkg",
+                "path": "src/enpkg/toolpkg"
+            },
+            "script": "metric.py",
+            "function": "fourtyone_wrapper",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "integer"
+                    },
+                    "description": "A value of 41."
+                }
+            ]
+        },
+        "fourtytwo": {
+            "project": "toolproj",
+            "package": {
+                "name": "toolpkg",
+                "path": "src/enpkg/toolpkg"
+            },
+            "script": "metric.py",
+            "function": "fourtytwo_wrapper",
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "integer"
+                    },
+                    "description": "A value of 42."
+                }
+            ]
+        }
+    },
+    "build": {
+        "requirements": ""
+    }
+}

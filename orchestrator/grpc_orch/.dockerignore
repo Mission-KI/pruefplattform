@@ -1,0 +1,13 @@
+.venv
+.venv/*
+.venv/**
+
+__pycache__
+__pycache__/*
+__pycache__/**
+**/__pycache__
+**/__pycache__/**
+
+Dockerfile
+Makefile
+README.md

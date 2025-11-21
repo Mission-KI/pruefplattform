@@ -1,0 +1,26 @@
+{
+  "model_func": "prediction_wrapper",
+  "model_input_uri": [
+    {
+      "class": "File",
+      "path": "../../../data/mock_parameters.json"
+    },
+    {
+      "class": "File",
+      "path": "../../../data/mock_input.json"
+    }
+  ],
+  "model_output_uri": [
+    "mock_predictions.json"
+  ],
+  "tool_func": "check_wrapper",
+  "tool_input_uri": [
+    {
+      "class": "File",
+      "path": "../../../data/mock_groundtruth.json"
+    }
+  ],
+  "tool_output_uri": [
+    "mock_result.json"
+  ]
+}

@@ -1,0 +1,23 @@
+"""A generated script for importing and calling tool functions"""
+
+{% for function in functions -%}
+from {{function.pkgname}}.{{function.scriptname}} import {{function.name}}
+{% endfor %}
+
+
+def funcwrapper(exec_message: dict):
+    """A wrapper for tool functions
+
+    Args:
+        exec_message (dict): The execution message that contains the function name, input and output specs.
+
+    Raises:
+        Exception: If trying to call a function that the tool does not provide.
+    """
+    funcname = exec_message["func"]
+
+    {% for function in functions -%}
+    if funcname == "{{function.name}}":
+        return {{function.name}}(exec_message)
+    {% endfor %}
+    raise Exception(f"Function {funcname} not found")

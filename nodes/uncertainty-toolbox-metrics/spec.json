@@ -1,0 +1,261 @@
+{
+    "id": {
+        "domain": "local",
+        "name": "uncertainty-toolbox-metrics"
+    },
+    "description": "A tool that wraps the metrics of the uncertainty-toolbox (https://github.com/uncertainty-toolbox/uncertainty-toolbox/tree/main)",
+    "functions": {
+        "mean_absolute_calibration_error": {
+            "project": "uncertainty-toolbox-metrics",
+            "package": {
+                "name": "uct_wrapper",
+                "path": "src/enpkg/uct_wrapper"
+            },
+            "script": "impl.py",
+            "function": "mean_absolute_calibration_error",
+            "inputs": [
+                {
+                    "name": "input_data",
+                    "type": "file",
+                    "format": "application/vnd.apache.arrow.file",
+                    "schema": {
+                        "fields": [
+                            {
+                                "name": "prediction_mean",
+                                "type": "float64",
+                                "nullable": false
+                            },
+                            {
+                                "name": "prediction_std",
+                                "type": "float64",
+                                "nullable": false
+                            }
+                        ]
+                    },
+                    "description": "A batch of tables each representing a set of model predictions and corresponding standard deviations"
+                },
+                {
+                    "name": "labels",
+                    "type": "file",
+                    "format": "application/vnd.apache.arrow.file",
+                    "schema": {
+                        "fields": [
+                            {
+                                "name": "label",
+                                "type": "float64",
+                                "nullable": false
+                            }
+                        ]
+                    },
+                    "description": "A batch of columns each representing a set of labels"
+                },
+                {
+                    "name": "config",
+                    "type": "file",
+                    "format": "json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "object",
+                        "properties": {
+                            "num_bins": {
+                                "type": "integer"
+                            },
+                            "vectorized": {
+                                "type": "boolean"
+                            },
+                            "prop_type": {
+                                "type": "string",
+                                "enum": ["interval", "quantile"]
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "description": "A JSON with optional function parameters."
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "metric_value",
+                    "type": "file",
+                    "format": "application/vnd.apache.arrow.file",
+                    "schema": {
+                        "fields": [
+                            {
+                                "name": "metric_value",
+                                "type": "float64",
+                                "nullable": false
+                            }
+                        ]
+                    },
+                    "description": "A batch of metric values"
+                }
+            ]
+        },
+
+        "expected_calibration_error": {
+            "project": {"$ref": "#/functions/mean_absolute_calibration_error/project"},
+            "package": {"$ref": "#/functions/mean_absolute_calibration_error/package"},
+            "script": {"$ref": "#/functions/mean_absolute_calibration_error/script"},
+            "function": "expected_calibration_error",
+            "inputs": {"$ref": "#/functions/mean_absolute_calibration_error/inputs"},
+            "outputs": {"$ref": "#/functions/mean_absolute_calibration_error/outputs"}
+        },
+
+        "root_mean_squared_calibration_error": {
+            "project": {"$ref": "#/functions/mean_absolute_calibration_error/project"},
+            "package": {"$ref": "#/functions/mean_absolute_calibration_error/package"},
+            "script": {"$ref": "#/functions/mean_absolute_calibration_error/script"},
+            "function": "root_mean_squared_calibration_error",
+            "inputs": {"$ref": "#/functions/mean_absolute_calibration_error/inputs"},
+            "outputs": {"$ref": "#/functions/mean_absolute_calibration_error/outputs"}
+        },
+
+        "miscalibration_area": {
+            "project": {"$ref": "#/functions/mean_absolute_calibration_error/project"},
+            "package": {"$ref": "#/functions/mean_absolute_calibration_error/package"},
+            "script": {"$ref": "#/functions/mean_absolute_calibration_error/script"},
+            "function": "miscalibration_area",
+            "inputs": {"$ref": "#/functions/mean_absolute_calibration_error/inputs"},
+            "outputs": {"$ref": "#/functions/mean_absolute_calibration_error/outputs"}
+        },
+
+        "interval_score": {
+            "project": {"$ref": "#/functions/mean_absolute_calibration_error/project"},
+            "package": {"$ref": "#/functions/mean_absolute_calibration_error/package"},
+            "script": {"$ref": "#/functions/mean_absolute_calibration_error/script"},
+            "function": "interval_score",
+            "inputs": [
+                {"$ref": "#/functions/mean_absolute_calibration_error/inputs/0"},
+                {"$ref": "#/functions/mean_absolute_calibration_error/inputs/1"},
+                {
+                    "name": "config",
+                    "type": "file",
+                    "format": "json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "object",
+                        "properties": {
+                            "scaled": {
+                                "type": "boolean"
+                            },
+                            "start_p": {
+                                "type": "number"
+                            },
+                            "end_p": {
+                                "type": "number"
+                            },
+                            "resolution": {
+                                "type": "integer"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "description": "A JSON with optional function parameters."
+                }
+            ],
+            "outputs": {"$ref": "#/functions/mean_absolute_calibration_error/outputs"}
+        },
+
+        "check_score": {
+            "project": {"$ref": "#/functions/mean_absolute_calibration_error/project"},
+            "package": {"$ref": "#/functions/mean_absolute_calibration_error/package"},
+            "script": {"$ref": "#/functions/mean_absolute_calibration_error/script"},
+            "function": "check_score",
+            "inputs": [
+                {"$ref": "#/functions/mean_absolute_calibration_error/inputs/0"},
+                {"$ref": "#/functions/mean_absolute_calibration_error/inputs/1"},
+                {
+                    "name": "config",
+                    "type": "file",
+                    "format": "json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "object",
+                        "properties": {
+                            "scaled": {
+                                "type": "boolean"
+                            },
+                            "start_q": {
+                                "type": "number"
+                            },
+                            "end_q": {
+                                "type": "number"
+                            },
+                            "resolution": {
+                                "type": "integer"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "description": "A JSON with optional function parameters."
+                }
+            ],
+            "outputs": {"$ref": "#/functions/mean_absolute_calibration_error/outputs"}
+        },
+
+        "negative_log_likelihood": {
+            "project": {"$ref": "#/functions/mean_absolute_calibration_error/project"},
+            "package": {"$ref": "#/functions/mean_absolute_calibration_error/package"},
+            "script": {"$ref": "#/functions/mean_absolute_calibration_error/script"},
+            "function": "negative_log_likelihood",
+            "inputs": [
+                {"$ref": "#/functions/mean_absolute_calibration_error/inputs/0"},
+                {"$ref": "#/functions/mean_absolute_calibration_error/inputs/1"},
+                {
+                    "name": "config",
+                    "type": "file",
+                    "format": "json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "object",
+                        "properties": {
+                            "scaled": {
+                                "type": "boolean"
+                            }
+                        },
+                        "additionalProperties": false
+                    },
+                    "description": "A JSON with optional function parameters."
+                }
+            ],
+            "outputs": {"$ref": "#/functions/mean_absolute_calibration_error/outputs"}
+        },
+
+        "continuous_ranked_probability_score": {
+            "project": {"$ref": "#/functions/negative_log_likelihood/project"},
+            "package": {"$ref": "#/functions/negative_log_likelihood/package"},
+            "script": {"$ref": "#/functions/negative_log_likelihood/script"},
+            "function": "continuous_ranked_probability_score",
+            "inputs": {"$ref": "#/functions/negative_log_likelihood/inputs"},
+            "outputs": {"$ref": "#/functions/negative_log_likelihood/outputs"}
+        },
+
+        "expected_standard_deviation": {
+            "project": {"$ref": "#/functions/mean_absolute_calibration_error/project"},
+            "package": {"$ref": "#/functions/mean_absolute_calibration_error/package"},
+            "script": {"$ref": "#/functions/mean_absolute_calibration_error/script"},
+            "function": "expected_standard_deviation",
+            "inputs": [
+                {
+                    "name": "input_data",
+                    "type": "file",
+                    "format": "application/vnd.apache.arrow.file",
+                    "schema": {
+                        "fields": [
+                            {
+                                "name": "prediction_std",
+                                "type": "float64",
+                                "nullable": false
+                            }
+                        ]
+                    },
+                    "description": "A batch of tables each representing a set of model prediction standard deviations"
+                }
+            ],
+            "outputs": {"$ref": "#/functions/mean_absolute_calibration_error/outputs"}
+        }
+    },
+    "build": {
+        "requirements": ""
+    }
+}

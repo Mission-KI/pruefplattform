@@ -1,0 +1,20 @@
+{
+  "func": "mean_absolute_calibration_error",
+  "input_uri": [
+    {
+      "class": "File",
+      "path": "../../data/predictions.arrow"
+    },
+    {
+      "class": "File",
+      "path": "../../data/labels.arrow"
+    },
+    {
+      "class": "File",
+      "path": "../../data/config_A.json"
+    }
+  ],
+  "output_uri": [
+    "results/result.arrow"
+  ]
+}

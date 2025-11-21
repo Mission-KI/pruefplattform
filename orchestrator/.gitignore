@@ -1,0 +1,31 @@
+# Ignore everything
+*
+
+# Allow files and directories
+!/cwl_orch
+!/cwl_orch/Makefile
+!/grpc_orch
+!/grpc_orch/**
+!/tests
+!README.md
+!.gitignore
+!/tests/nodes
+!/tests/nodes/mocktool
+!/tests/nodes/mocktool/**
+!/tests/workflows
+!/tests/workflows/mockworkflow
+!/tests/workflows/mockworkflow/**
+!/tests/workflows/scikit-workflow
+!/tests/workflows/scikit-workflow/**
+!**/.gitkeep
+!/tests/data
+!/tests/data/**
+
+# Ignore unnecessary files inside allowed directories
+# This should go after the allowed directories
+**/__pycache__
+**/__pycache__/**
+**/.venv
+**/.venv/**
+
+/tests/nodes/mocktool/tests/workflow/results.json

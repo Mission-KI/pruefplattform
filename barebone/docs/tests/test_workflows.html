@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<meta name="generator" content="pdoc3 0.11.5">
+<title>tests.test_workflows API documentation</title>
+<meta name="description" content="">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/sanitize.min.css" integrity="sha512-y1dtMcuvtTMJc1yPgEqF0ZjQbhnc/bFhyvIyVNb9Zk5mIGtqVaAB1Ttl28su8AvFMOY0EwRbAe+HCLqj6W7/KA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/13.0.0/typography.min.css" integrity="sha512-Y1DYSb995BAfxobCkKepB1BqJJTPrOp3zPL74AWFugHHmmdcvO+C48WLrUOlhGMc0QG7AE3f7gmvvcrmX2fDoA==" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:1.5em;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:2em 0 .50em 0}h3{font-size:1.4em;margin:1.6em 0 .7em 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .2s ease-in-out}a:visited{color:#503}a:hover{color:#b62}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900;font-weight:bold}pre code{font-size:.8em;line-height:1.4em;padding:1em;display:block}code{background:#f3f3f3;font-family:"DejaVu Sans Mono",monospace;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source > summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible;min-width:max-content}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em 1em;margin:1em 0}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul ul{padding-left:1em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js" integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ==" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => {
+hljs.configure({languages: ['bash', 'css', 'diff', 'graphql', 'ini', 'javascript', 'json', 'plaintext', 'python', 'python-repl', 'rust', 'shell', 'sql', 'typescript', 'xml', 'yaml']});
+hljs.highlightAll();
+/* Collapse source docstrings */
+setTimeout(() => {
+[...document.querySelectorAll('.hljs.language-python > .hljs-string')]
+.filter(el => el.innerHTML.length > 200 && ['"""', "'''"].includes(el.innerHTML.substring(0, 3)))
+.forEach(el => {
+let d = document.createElement('details');
+d.classList.add('hljs-string');
+d.innerHTML = '<summary>"""</summary>' + el.innerHTML.substring(3);
+el.replaceWith(d);
+});
+}, 100);
+})</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>tests.test_workflows</code></h1>
+</header>
+<section id="section-intro">
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="tests.test_workflows.available_images"><code class="name flex">
+<span>def <span class="ident">available_images</span></span>(<span>docker: python_on_whales.docker_client.DockerClient,<br>config: python_on_whales.components.compose.models.ComposeConfig) ‑> List[str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def available_images(docker: DockerClient, config: ComposeConfig) -&gt; List[str]:
+    &#34;&#34;&#34;
+    Retrieves a list of image names that have been built, based on the provided Docker Compose configuration.
+
+    Args:
+        docker (DockerClient): A client for interacting with Docker, used to retrieve image information.
+        config (ComposeConfig): The Docker Compose configuration containing service definitions.
+
+    Returns:
+        List[str]: A list of image names that have been built.
+    &#34;&#34;&#34;
+    image_name_to_id = image_name_to_id_map(docker)
+    all_image_names = [full_image_name(svc.image) for svc in config.services.values()]
+    return [name for name in all_image_names if name in image_name_to_id]</code></pre>
+</details>
+<div class="desc"><p>Retrieves a list of image names that have been built, based on the provided Docker Compose configuration.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>docker</code></strong> :&ensp;<code>DockerClient</code></dt>
+<dd>A client for interacting with Docker, used to retrieve image information.</dd>
+<dt><strong><code>config</code></strong> :&ensp;<code>ComposeConfig</code></dt>
+<dd>The Docker Compose configuration containing service definitions.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[str]</code></dt>
+<dd>A list of image names that have been built.</dd>
+</dl></div>
+</dd>
+<dt id="tests.test_workflows.full_image_name"><code class="name flex">
+<span>def <span class="ident">full_image_name</span></span>(<span>image_name: str) ‑> str</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def full_image_name(image_name: str) -&gt; str:
+    &#34;&#34;&#34;
+    Returns the full image name, including the tag, if not already provided.
+
+    Args:
+        image_name (str): The name of the image, potentially without a tag.
+
+    Returns:
+        str: The full image name, including the tag (defaults to &#34;:latest&#34; if not provided).
+    &#34;&#34;&#34;
+    # Check, if image name contains a tag:
+    if re.search(r&#34;:[a-zA-Z\d_][a-zA-Z\d_.-]{0,127}$&#34;, image_name) is not None:
+        # full name (incl. tag) given, nothing to do
+        return image_name
+    return f&#34;{image_name}:latest&#34;</code></pre>
+</details>
+<div class="desc"><p>Returns the full image name, including the tag, if not already provided.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>image_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the image, potentially without a tag.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>str</code></dt>
+<dd>The full image name, including the tag (defaults to ":latest" if not provided).</dd>
+</dl></div>
+</dd>
+<dt id="tests.test_workflows.image_name_to_id_map"><code class="name flex">
+<span>def <span class="ident">image_name_to_id_map</span></span>(<span>docker: python_on_whales.docker_client.DockerClient) ‑> Dict[str, str]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def image_name_to_id_map(docker: DockerClient) -&gt; Dict[str, str]:
+    &#34;&#34;&#34;
+    Generates a dictionary mapping available image tags to their corresponding image IDs.
+
+    Args:
+        docker (DockerClient): A client for interacting with Docker, used to retrieve image information.
+
+    Returns:
+        Dict[str, str]: A dictionary where keys are image tags and values are their corresponding image IDs.
+    &#34;&#34;&#34;
+    return dict(
+        item
+        for inner_list in [[(tag, image.id) for tag in image.repo_tags] for image in docker.images() if image.repo_tags]
+        for item in inner_list
+    )</code></pre>
+</details>
+<div class="desc"><p>Generates a dictionary mapping available image tags to their corresponding image IDs.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>docker</code></strong> :&ensp;<code>DockerClient</code></dt>
+<dd>A client for interacting with Docker, used to retrieve image information.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Dict[str, str]</code></dt>
+<dd>A dictionary where keys are image tags and values are their corresponding image IDs.</dd>
+</dl></div>
+</dd>
+<dt id="tests.test_workflows.services_running"><code class="name flex">
+<span>def <span class="ident">services_running</span></span>(<span>docker: python_on_whales.docker_client.DockerClient,<br>config: python_on_whales.components.compose.models.ComposeConfig) ‑> List[bool]</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def services_running(docker: DockerClient, config: ComposeConfig) -&gt; List[bool]:
+    &#34;&#34;&#34;
+    Checks if services defined in the provided compose config are running.
+
+    Args:
+        docker (DockerClient): A client for interacting with Docker.
+        config (ComposeConfig): The compose configuration containing service definitions.
+
+    Returns:
+        List[bool]: A list of boolean values indicating whether each service is running.
+    &#34;&#34;&#34;
+    # get the image IDs for all services in the config that should be running
+    image_name_to_id = image_name_to_id_map(docker)
+    service_image_ids = [image_name_to_id.get(full_image_name(svc.image)) for svc in config.services.values()]
+    # check if containers based on these images are actually running
+    running_image_ids = [container.image for container in docker.ps()]
+    return [img_id in running_image_ids for img_id in service_image_ids]</code></pre>
+</details>
+<div class="desc"><p>Checks if services defined in the provided compose config are running.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>docker</code></strong> :&ensp;<code>DockerClient</code></dt>
+<dd>A client for interacting with Docker.</dd>
+<dt><strong><code>config</code></strong> :&ensp;<code>ComposeConfig</code></dt>
+<dd>The compose configuration containing service definitions.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>List[bool]</code></dt>
+<dd>A list of boolean values indicating whether each service is running.</dd>
+</dl></div>
+</dd>
+<dt id="tests.test_workflows.tool_workflow"><code class="name flex">
+<span>def <span class="ident">tool_workflow</span></span>(<span>compose_config_filename, tool_container_dirname, tool_container_name, test_func) ‑> None</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def tool_workflow(compose_config_filename, tool_container_dirname, tool_container_name, test_func) -&gt; None:
+    &#34;&#34;&#34;Tests a tool workflow by bringing up a Docker Compose configuration,
+    checking that all services are running and verifying the that the tool
+    service is healthy and produced the expected output.
+
+    Args:
+        compose_config_filename (str): Filename of the docker compose config to use.
+        tool_container_dirname (str): Directory name of the directory containing the tool image context.
+        tool_container_name (str): Name of the tool container
+        test_func (callable): A callable of signature (DockerClient, DockerContainer, str) that tests
+                              whether the launched containers are functioning properly
+
+    Raises:
+        StopIteration: If container does not exist.
+    &#34;&#34;&#34;
+    with TemporaryDirectory(dir=temp_base) as temp_dir:
+        fs = fsspec.filesystem(&#34;file&#34;)
+        os.chmod(temp_dir, 511)  # make folder world accessible to prevent issues of namespace remapping
+
+        # create environment file for mock workflow:
+        env_file = os.path.join(temp_dir, &#34;.env&#34;)
+        with open(env_file, &#34;w&#34;, encoding=&#34;utf8&#34;) as fh:
+            fh.write(f&#34;results={temp_dir}\n&#34;)
+
+        compose_file = os.path.join(temp_dir, compose_config_filename)
+        fs.copy(os.path.join(&#34;.&#34;, &#34;tests&#34;, &#34;workflows&#34;, compose_config_filename), compose_file)
+
+        # Check if a service is already running
+        compose_config_name, _ = os.path.splitext(compose_config_filename)
+        compose_project_name = f&#34;{compose_config_name}_{tool_container_dirname}&#34;
+        docker = DockerClient(compose_files=[compose_file], compose_project_name=compose_project_name)
+        config = docker.compose.config()
+        if any(services_running(docker, config)):
+            logger.debug(&#34;Services are already running, shutting them down via compose ...&#34;)
+            docker.compose.down()
+        for image in available_images(docker, config):
+            docker.image.remove(image)
+        for item in [tool_container_dirname, &#34;orchestrator&#34;]:
+            subprocess.run([&#34;make&#34;, &#34;docker&#34;], cwd=os.path.join(&#34;.&#34;, &#34;tests&#34;, item), check=True)
+
+        with ComposeContextManager(docker, timeout=60):
+            try:
+                sleep(5)  # Wait for the orchestrator to send message
+                assert all(services_running(docker, config))
+                tool_container = next(container for container in docker.ps() if container.name == tool_container_name)
+                # check that the service is healthy
+                assert tool_container.state.health.status == &#34;healthy&#34;
+
+                test_func(docker, tool_container, temp_dir)
+
+            except StopIteration as e:
+                logger.exception(f&#34;Failed to find running container named {tool_container_name}.&#34;)
+                raise e</code></pre>
+</details>
+<div class="desc"><p>Tests a tool workflow by bringing up a Docker Compose configuration,
+checking that all services are running and verifying the that the tool
+service is healthy and produced the expected output.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>compose_config_filename</code></strong> :&ensp;<code>str</code></dt>
+<dd>Filename of the docker compose config to use.</dd>
+<dt><strong><code>tool_container_dirname</code></strong> :&ensp;<code>str</code></dt>
+<dd>Directory name of the directory containing the tool image context.</dd>
+<dt><strong><code>tool_container_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>Name of the tool container</dd>
+<dt><strong><code>test_func</code></strong> :&ensp;<code>callable</code></dt>
+<dd>A callable of signature (DockerClient, DockerContainer, str) that tests
+whether the launched containers are functioning properly</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>StopIteration</code></dt>
+<dd>If container does not exist.</dd>
+</dl></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="tests.test_workflows.ComposeContextManager"><code class="flex name class">
+<span>class <span class="ident">ComposeContextManager</span></span>
+<span>(</span><span>docker, timeout=5)</span>
+</code></dt>
+<dd>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class ComposeContextManager:
+    &#34;&#34;&#34;A context manager for a Docker client to clean up if anything fails&#34;&#34;&#34;
+
+    def __init__(self, docker, timeout=5):
+        self._docker = docker
+        self.timeout = timeout
+
+    def __enter__(self):
+        logger.debug(&#34;docker compose up&#34;)
+        try:
+            self._docker.compose.up(detach=True, wait_timeout=self.timeout)
+        except Exception:
+            logger.debug(&#34;docker compose up did not complete correctly. Aborting.&#34;)
+        return self._docker
+
+    def __exit__(self, exc_type, exc_value, traceback):
+        logger.debug(&#34;docker compose down&#34;)
+        self._docker.compose.down()</code></pre>
+</details>
+<div class="desc"><p>A context manager for a Docker client to clean up if anything fails</p></div>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="tests" href="index.html">tests</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="tests.test_workflows.available_images" href="#tests.test_workflows.available_images">available_images</a></code></li>
+<li><code><a title="tests.test_workflows.full_image_name" href="#tests.test_workflows.full_image_name">full_image_name</a></code></li>
+<li><code><a title="tests.test_workflows.image_name_to_id_map" href="#tests.test_workflows.image_name_to_id_map">image_name_to_id_map</a></code></li>
+<li><code><a title="tests.test_workflows.services_running" href="#tests.test_workflows.services_running">services_running</a></code></li>
+<li><code><a title="tests.test_workflows.tool_workflow" href="#tests.test_workflows.tool_workflow">tool_workflow</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="tests.test_workflows.ComposeContextManager" href="#tests.test_workflows.ComposeContextManager">ComposeContextManager</a></code></h4>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.11.5</a>.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mki_barebone"
+version = "0.0.1"
+dependencies = [
+  "grpcio-tools",
+  "grpcio",
+  "protobuf",
+  "fsspec",
+  "jinja2",
+  "jsonref",
+  "jsonschema",
+  "python-on-whales"
+]
+requires-python = ">=3.9"
+authors = [
+  {name = "Maximilian Pintz", email = "maximilian.alexander.pintz@iais.fraunhofer.de"},
+  {name = "Daniel Becker", email = "daniel.becker@iais.fraunhofer.de"},
+  {name = "Reinhard Budde", email = "reinhard.budde@iais.fraunhofer.de"},
+]
+description = "A tool for building containers that are compatible with the MISSION KI platform"
+readme = "README.md"
+license = "LicenseRef-To-Be-Determined"
+license-files = ["LICEN[CS]E.*"]
+keywords = ["mission ki", "platform", "barebone", "container"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Build Tools",
+  "Programming Language :: Python"
+]
+
+[project.urls]
+Repository = "https://gitlab.cc-asp.fraunhofer.de/team_kiaz/mki-barebone.git"
+
+[project.optional-dependencies]
+dev = [
+  "pytest",
+  "cwltool",
+  "pdoc3",
+  "mki-barebone-io[numpy]",
+  "mki-barebone-io[arrow]"
+]
+
+[tool.pytest.ini_options]
+markers = [
+    "unit: run unit tests",
+    "integration: run integration tests",
+    "grpc: run tests for grpc interface",
+    "cwl: run tests for args interface using cwl",
+    "barebone: run tests for the barebone only",
+    "io: tests for the data loaders and savers",
+    "mockcontainer: tests for the mockcontainer",
+]
+log_cli = true
+log_cli_level = "DEBUG"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+
+[tool.uv.sources]
+mki-barebone-io = { workspace = true }
+
+[tool.uv.workspace]
+members = ["extra/*"]
+exclude = ["src/mki_barebone/templates"]

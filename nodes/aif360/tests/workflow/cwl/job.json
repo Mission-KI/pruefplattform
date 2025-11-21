@@ -1,0 +1,16 @@
+{
+  "func": "statistical_parity_difference_wrapper",
+  "input_uri": [
+    {
+      "class": "File",
+      "path": "../../data/data.csv"
+    },
+    {
+      "class": "File",
+      "path": "../../data/config.json"
+    }
+  ],
+  "output_uri": [
+    "results/result.json"
+  ]
+}

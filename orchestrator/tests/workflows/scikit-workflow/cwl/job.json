@@ -1,0 +1,22 @@
+{
+  "model_func": "predict_wrapper",
+  "model_input_uri": [
+    {
+      "class": "File",
+      "path": "../../../../../nodes/scikit-logreg-model/tests/data/features.json"
+    }
+  ],
+  "model_output_uri": [
+    "results/predictions.json"
+  ],
+  "tool_func": "accuracy_wrapper",
+  "tool_input_uri": [
+    {
+      "class": "File",
+      "path": "../../../../../nodes/scikit-metrics-tool/tests/data/true_labels.json"
+    }
+  ],
+  "tool_output_uri": [
+    "results/result.json"
+  ]
+}

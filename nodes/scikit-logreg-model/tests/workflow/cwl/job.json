@@ -1,0 +1,12 @@
+{
+  "func": "predict_wrapper",
+  "input_uri": [
+    {
+      "class": "File",
+      "path": "../../data/features.json"
+    }
+  ],
+  "output_uri": [
+    "results/result.json"
+  ]
+}

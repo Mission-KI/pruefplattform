@@ -1,0 +1,649 @@
+{
+    "id": {
+        "domain": "local",
+        "name": "scikit-metrics-tool"
+    },
+    "description": "A tool that wraps scikit learn metrics",
+    "functions": {
+        "accuracy": {
+            "project": "scikit-metrics-tool",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "accuracy_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed accuracy."
+                }
+            ]
+        },
+        "precision": {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "precision_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed precision."
+                }
+            ]
+        },
+        "recall": {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "recall_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed recall."
+                }
+            ]
+        },
+        "f1": {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "f1_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed f1."
+                }
+            ]
+        },
+        "roc_auc": {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "roc_auc_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed roc_auc."
+                }
+            ]
+        },
+        "mcc": {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "mcc_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed mcc."
+                }
+            ]
+        },
+        "mse": {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "mse_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed mse."
+                }
+            ]
+        },
+        "specificity":  {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "specificity_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed specificity."
+                }
+            ]
+        },
+        "balanced_accuracy":  {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "balanced_accuracy_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed balanced_accuracy."
+                }
+            ]
+        },
+        "tp":  {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "tp_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed tp."
+                }
+            ]
+        },
+        "fp":  {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "fp_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed fp."
+                }
+            ]
+        },
+        "tn":  {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "tn_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed tn."
+                }
+            ]
+        },
+        "fn":  {
+            "project": "",
+            "package": {
+                "name": "scikit_metrics",
+                "path": "src/enpkg/scikit_metrics"
+            },
+            "script": "metric_server.py",
+            "function": "fn_wrapper",
+            "inputs": [
+                {
+                    "name": "y_true",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing the ground truth"
+                },
+                {
+                    "name": "y_pred",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "description": "An array representing model predictions"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "result",
+                    "type": "file",
+                    "format": "application/json",
+                    "schema": {
+                        "$schema": "http://json-schema.org/draft-04/schema#",
+                        "type": "number"
+                    },
+                    "description": "A float value representing the computed fn."
+                }
+            ]
+        }
+    },
+    "build": {
+        "requirements": ""
+    }
+}

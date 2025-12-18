@@ -3,7 +3,7 @@
 
 ## Überblick
 
-Dieses Repository enthält den **Open-Source-Prototyp zur technischen Prüfung von KI-Systemen**, entwickelt im Rahmen des Projekts **MISSION KI**.
+Dieses Repository enthält den **Open-Source-Prototyp zur technischen Prüfung von KI-Systemen**, der im Rahmen von des Projekts [**MISSION KI**](https://mission-ki.de/) von [Fraunhofer IAIS](https://www.iais.fraunhofer.de/) entwickelt wurde.
 
 Die Prüfplattform ermöglicht die **automatisierte, reproduzierbare und nachvollziehbare Erzeugung technischer Evidenzen** mithilfe modularer, workflowbasierter Prüfungen. Zielgruppen sind:
 
